@@ -1,7 +1,5 @@
 package com.jdc.tut1.test;
 
-import static org.junit.Assert.*;
-
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
