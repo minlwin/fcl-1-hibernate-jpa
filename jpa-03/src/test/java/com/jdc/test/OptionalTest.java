@@ -13,11 +13,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.jdc.pos.domain.entity.Category;
+import com.jdc.pos.domain.entity.Item;
 
-class GetReferenceTest {
+class OptionalTest {
 	
-	private static EntityManagerFactory EMF;
-	private EntityManager em;
+	static EntityManagerFactory EMF;
+	EntityManager em;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -28,37 +29,31 @@ class GetReferenceTest {
 	static void tearDownAfterClass() throws Exception {
 		EMF.close();
 	}
-	
+
 	@BeforeEach
-	void setUp() {
+	void setUp() throws Exception {
 		em = EMF.createEntityManager();
 		em.getTransaction().begin();
 	}
-	
+
 	@AfterEach
-	void tearDown() {
+	void tearDown() throws Exception {
 		em.getTransaction().commit();
 		em.close();
 	}
 
 	@Test
-	void test1_creation() {
+	void test() {
+		Item item = new Item();
+		item.setName("Coke");
+		
 		Category c = new Category();
-		c.setName("Foods");
-		em.persist(c);
-	}
-	
-	@Test
-	void test2_findById() {
-		Category c = em.find(Category.class, 1);
-		assertNotNull(c);
-	}
-	
-	@Test
-	void test3_getReference() {
-		Category c = em.getReference(Category.class, 1);
-		assertNotNull(c);
-		assertTrue(em.contains(c));
+		c.setName("Drink");
+		item.setCategory(c);
+		
+		em.persist(item);
+		
+		assertEquals(1, item.getId());
 	}
 
 }

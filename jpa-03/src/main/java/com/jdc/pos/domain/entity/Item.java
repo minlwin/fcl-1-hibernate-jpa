@@ -1,20 +1,19 @@
 package com.jdc.pos.domain.entity;
 
-import java.io.Serializable;
+import static javax.persistence.GenerationType.IDENTITY;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.jdc.pos.domain.listener.SecureEntity;
+import static javax.persistence.CascadeType.PERSIST;
+
 @Entity
-public class Item implements Serializable {
+public class Item implements SecureEntity {
 
 	private static final long serialVersionUID = 1L;
-
-	public Item() {
-	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -30,7 +29,7 @@ public class Item implements Serializable {
 
 	private SecurityInfo security;
 
-	@ManyToOne
+	@ManyToOne(optional = false, cascade = PERSIST)
 	private Category category;
 
 	public long getId() {
@@ -88,5 +87,5 @@ public class Item implements Serializable {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-
+	
 }

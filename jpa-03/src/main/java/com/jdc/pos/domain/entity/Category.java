@@ -2,15 +2,15 @@ package com.jdc.pos.domain.entity;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-import java.io.Serializable;
-
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import com.jdc.pos.domain.listener.SecureEntity;
+
 @Entity
-public class Category implements Serializable {
+public class Category implements SecureEntity {
 
 	private static final long serialVersionUID = 1L;
 
