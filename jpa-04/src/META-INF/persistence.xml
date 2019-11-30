@@ -3,7 +3,7 @@
 	<persistence-unit name="jpa-04" transaction-type="RESOURCE_LOCAL">
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:database"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:database/db"/>
 			<property name="javax.persistence.jdbc.user" value="sa"/>
 			<property name="javax.persistence.jdbc.password" value="sa"/>
 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
