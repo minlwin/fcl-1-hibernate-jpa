@@ -40,7 +40,9 @@ public class PatientList implements Initializable{
 	}
 	
 	private void save(Patient patient) {
-		
+		repo.save(patient);
+		gender.setValue(patient.getGender());
+		search();
 	}
 
 	@Override

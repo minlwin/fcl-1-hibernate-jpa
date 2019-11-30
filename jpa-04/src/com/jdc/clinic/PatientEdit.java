@@ -1,5 +1,7 @@
 package com.jdc.clinic;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.function.Consumer;
 
 import com.jdc.clinic.model.entity.Patient;
@@ -7,6 +9,7 @@ import com.jdc.clinic.model.entity.Patient.Gender;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
@@ -16,7 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class PatientEdit {
+public class PatientEdit implements Initializable{
 	
 	@FXML
 	private ComboBox<Gender> gender;
@@ -77,5 +80,10 @@ public class PatientEdit {
 		saveListener.accept(patient);
 		
 		name.getScene().getWindow().hide();
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		gender.getItems().addAll(Gender.values());
 	}
 }

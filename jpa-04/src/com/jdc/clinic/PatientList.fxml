@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="main-frame" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.clinic.PatientList">
    <stylesheets>
@@ -48,13 +49,41 @@
       </HBox>
       <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="191.0" text="Name" />
-            <TableColumn prefWidth="191.0" text="Phone Number" />
-            <TableColumn prefWidth="134.0" text="Gender" />
-            <TableColumn prefWidth="134.0" text="Date of Birth" />
-            <TableColumn prefWidth="111.0" text="Weight" />
-            <TableColumn prefWidth="339.0" text="Address" />
+          <TableColumn prefWidth="75.0" text="ID" >
+          	<cellValueFactory>
+          		<PropertyValueFactory property="id" />
+          	</cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="191.0" text="Name" >
+          	<cellValueFactory>
+          		<PropertyValueFactory property="name" />
+          	</cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="191.0" text="Phone Number"  >
+          	<cellValueFactory>
+          		<PropertyValueFactory property="phone" />
+          	</cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="134.0" text="Gender"  >
+          	<cellValueFactory>
+          		<PropertyValueFactory property="gender" />
+          	</cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="134.0" text="Date of Birth"  >
+          	<cellValueFactory>
+          		<PropertyValueFactory property="dob" />
+          	</cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="111.0" text="Weight"  >
+          	<cellValueFactory>
+          		<PropertyValueFactory property="weight" />
+          	</cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="339.0" text="Address"  >
+          	<cellValueFactory>
+          		<PropertyValueFactory property="addresss" />
+          	</cellValueFactory>
+          </TableColumn>
         </columns>
       </TableView>
    </children>
