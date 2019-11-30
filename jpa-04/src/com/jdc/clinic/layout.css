@@ -1,0 +1,43 @@
+.main-frame {
+	-fx-pref-width: 1180px;
+	-fx-pref-height: 720px;
+}
+
+.title  {
+	-fx-pref-height: 80px;
+	-fx-alignment: center-left;
+	-fx-padding: 0 0 0 20;
+	-fx-spacing: 10px;
+}
+
+.title Label {
+	-fx-font-size: 20px;
+}
+
+.action-bar {
+	-fx-alignment: center-right;
+	-fx-padding: 20;
+}
+
+.button-box {
+	-fx-alignment: center ;
+	-fx-spacing: 10px;
+}
+
+.search-bar {
+	-fx-padding: 20;
+	-fx-spacing: 20px;
+}
+
+.edit-dialog  {
+	-fx-pref-width: 680px;
+}
+
+.button-bar {
+	-fx-alignment: center-left;
+	-fx-spacing: 10;
+}
+
+.button-bar Button {
+	-fx-pref-width: 120px;
+}

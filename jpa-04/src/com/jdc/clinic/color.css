@@ -1,0 +1,33 @@
+.p-color {
+	-fx-background-color: #1a237e;
+}
+
+.p-light {
+	-fx-background-color: #534bae;
+}
+
+.p-dark {
+	-fx-background-color: #000051;
+}
+
+.s-color {
+	-fx-background-color: #9fa8da;	
+}
+
+.s-light {
+	-fx-background-color: #d1d9ff;
+}
+
+.s-dark {
+	-fx-background-color: #6f79a8;
+}
+
+.white {
+	-fx-text-fill: #ffffff;
+	-fx-fill: #ffffff;
+}
+
+.black {
+	-fx-text-fill: #000000;
+	-fx-fill: #000000;
+}
