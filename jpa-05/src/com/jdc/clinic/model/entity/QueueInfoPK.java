@@ -3,8 +3,11 @@ package com.jdc.clinic.model.entity;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.Embeddable;
+
 import com.jdc.clinic.model.entity.TokenNumber.Type;
 
+@Embeddable
 public class QueueInfoPK implements Serializable {
 
  	private static final long serialVersionUID = 1L;

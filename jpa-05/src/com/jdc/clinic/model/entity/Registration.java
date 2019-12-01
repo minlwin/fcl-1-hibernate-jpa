@@ -3,6 +3,10 @@ package com.jdc.clinic.model.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+
+@Entity
 public class Registration implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -23,6 +27,7 @@ public class Registration implements Serializable {
 
 	private QueueInfo queue;
 
+	@EmbeddedId
 	private QueueInfoPK id;
 
 	public double getTemperature() {

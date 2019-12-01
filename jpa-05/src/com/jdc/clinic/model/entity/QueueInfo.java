@@ -2,6 +2,10 @@ package com.jdc.clinic.model.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+
+@Entity
 public class QueueInfo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -10,6 +14,7 @@ public class QueueInfo implements Serializable {
 
     private String phone;
 
+    @EmbeddedId
     private QueueInfoPK id;
 
 	public String getName() {
