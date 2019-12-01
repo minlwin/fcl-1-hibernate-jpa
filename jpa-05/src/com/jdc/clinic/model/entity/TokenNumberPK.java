@@ -12,6 +12,15 @@ public class TokenNumberPK implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	public TokenNumberPK() {
+	}
+
+	public TokenNumberPK(LocalDate refDate, Type type) {
+		super();
+		this.refDate = refDate;
+		this.type = type;
+	}
+
 	private LocalDate refDate;
 
 	private Type type;
@@ -59,7 +68,5 @@ public class TokenNumberPK implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 
 }
