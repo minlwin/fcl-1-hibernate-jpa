@@ -3,28 +3,38 @@ package com.jdc.clinic.model.repo;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
 import com.jdc.clinic.model.entity.QueueInfo;
 
 public class QueueInfoRepo {
 
-    public QueueInfoRepo() {
-    }
+	private EntityManager em;
 
-    public void create(QueueInfo q) {
-        // TODO implement here
-    }
+	public void create(QueueInfo q) {
+		em.persist(q);
+	}
 
-    public void update(QueueInfo q) {
-        // TODO implement here
-    }
+	public void update(QueueInfo q) {
+		em.merge(q);
+	}
 
-    public void delelete(int id) {
-        // TODO implement here
-    }
+	public void delelete(int id) {
+		QueueInfo data = em.find(QueueInfo.class, id);
+		if (null != data) {
+			em.remove(data);
+		}
+	}
 
-    public List<QueueInfo> search(String sql, Map<String, Object> params) {
-        // TODO implement here
-        return null;
-    }
+	public List<QueueInfo> search(String sql, Map<String, Object> params) {
+		TypedQuery<QueueInfo> query = em.createQuery(sql, QueueInfo.class);
+
+		for (String key : params.keySet()) {
+			query.setParameter(key, params.get(key));
+		}
+
+		return query.getResultList();
+	}
 
 }
