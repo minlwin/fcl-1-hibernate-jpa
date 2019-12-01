@@ -72,6 +72,7 @@
                   <Button mnemonicParsing="false" onAction="#save" text="Save" />
                </children>
             </HBox>
+            <Label fx:id="message" GridPane.columnIndex="1" />
          </children>
       </GridPane>
    </children>

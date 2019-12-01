@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.Consumer;
 
+import com.jdc.clinic.model.PatientException;
 import com.jdc.clinic.model.entity.Patient;
 import com.jdc.clinic.model.entity.Patient.Gender;
 
@@ -14,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
@@ -33,6 +35,9 @@ public class PatientEdit implements Initializable{
 	private DatePicker dob;
 	@FXML
 	private TextArea address;
+	
+	@FXML
+	private Label message;
 	
 	private Consumer<Patient> saveListener;
 	
@@ -69,17 +74,46 @@ public class PatientEdit implements Initializable{
 	
 	public void save() {
 		
-		Patient patient = new Patient();
-		patient.setName(name.getText());
-		patient.setAddress(address.getText());
-		patient.setDob(dob.getValue());
-		patient.setGender(gender.getValue());
-		patient.setWeight(Integer.parseInt(weight.getText()));
-		patient.setPhone(phone.getText());
+		try {
+			
+			if(name.getText().isEmpty()) {
+				throw new PatientException("Please enter Patient's name.");
+			}
+			
+			if(dob.getValue() == null) {
+				throw new PatientException("Please enter date of birth.");
+			}
+			
+			if(gender.getValue() == null) {
+				throw new PatientException("Please select gender.");
+			}
+			
+			if(weight.getText().isEmpty()) {
+				throw new PatientException("Please enter weight.");
+			}
+			
+			if(phone.getText().isEmpty()) {
+				throw new PatientException("Please enter Phone Number.");
+			}
+			
+			Patient patient = new Patient();
+			patient.setName(name.getText());
+			patient.setAddress(address.getText());
+			patient.setDob(dob.getValue());
+			patient.setGender(gender.getValue());
+			patient.setWeight(Integer.parseInt(weight.getText()));
+			patient.setPhone(phone.getText());
+			
+			saveListener.accept(patient);
+			
+			name.getScene().getWindow().hide();			
+		} catch (NumberFormatException e) {
+			message.setText("Please enter weight with digit.");
+		} catch (PatientException e) {
+			message.setText(e.getMessage());
+		}
 		
-		saveListener.accept(patient);
-		
-		name.getScene().getWindow().hide();
+
 	}
 
 	@Override

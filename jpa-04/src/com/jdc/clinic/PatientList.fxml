@@ -81,7 +81,7 @@
           </TableColumn>
             <TableColumn prefWidth="339.0" text="Address"  >
           	<cellValueFactory>
-          		<PropertyValueFactory property="addresss" />
+          		<PropertyValueFactory property="address" />
           	</cellValueFactory>
           </TableColumn>
         </columns>
