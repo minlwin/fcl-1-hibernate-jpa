@@ -2,6 +2,8 @@ package com.jdc.clinic.controller;
 
 import com.jdc.clinic.model.service.LoginService;
 
+import javafx.stage.Stage;
+
 public class Login {
 
     public Login() {
@@ -16,5 +18,10 @@ public class Login {
     public void close() {
         // TODO implement here
     }
+
+	public static void loadView(Stage stage) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

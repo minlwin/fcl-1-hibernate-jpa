@@ -1,7 +1,5 @@
 package com.jdc.clinic.controller;
 
-import java.util.*;
-
 public class QueueManagementEdit {
 
     public QueueManagementEdit() {

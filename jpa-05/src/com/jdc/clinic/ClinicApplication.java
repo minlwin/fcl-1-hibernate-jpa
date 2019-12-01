@@ -1,17 +1,26 @@
 package com.jdc.clinic;
 
+import com.jdc.clinic.controller.Login;
+import com.jdc.clinic.model.ModelContext;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class ClinicApplication extends Application {
 
-    public ClinicApplication() {
-    }
-
 	@Override
-	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public void start(Stage stage) throws Exception {
+		Login.loadView(stage);
+	}
+	
+	@Override
+	public void init() throws Exception {
+		ModelContext.init();
+	}
+	
+	@Override
+	public void stop() throws Exception {
+		ModelContext.close();
 	}
 
 }
