@@ -1,18 +1,58 @@
 package com.jdc.clinic.model.entity;
 
-public class ChronicDiseasesHistory {
+import java.io.Serializable;
 
-    public ChronicDiseasesHistory() {
-    }
+public class ChronicDiseasesHistory implements Serializable {
 
-    private int id;
+	private static final long serialVersionUID = 1L;
 
-    private String name;
+	private int id;
 
-    private String level;
+	private String name;
 
-    private String remark;
+	private String level;
 
-    private Patient patient;
+	private String remark;
 
+	private Patient patient;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
 }

@@ -1,16 +1,49 @@
 package com.jdc.clinic.model.entity;
 
-public class DrugAllergic {
+import java.io.Serializable;
 
-    public DrugAllergic() {
-    }
+public class DrugAllergic implements Serializable {
 
-    private int id;
+	private static final long serialVersionUID = 1L;
 
-    private String drug;
+	private int id;
 
-    private String level;
+	private String drug;
 
-    private Patient patient;
+	private String level;
+
+	private Patient patient;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDrug() {
+		return drug;
+	}
+
+	public void setDrug(String drug) {
+		this.drug = drug;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
 
 }

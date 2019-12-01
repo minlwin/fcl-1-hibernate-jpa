@@ -1,17 +1,33 @@
 package com.jdc.clinic.model.entity;
 
-public class TokenNumber {
+import java.io.Serializable;
 
-    public TokenNumber() {
-    }
+public class TokenNumber implements Serializable {
 
-    private int token;
+	private static final long serialVersionUID = 1L;
 
-    private TokenNumberPK id;
+	private int token;
 
-    public enum Type {
-        AM,
-        PM
-    }
+	private TokenNumberPK id;
+
+	public enum Type {
+		AM, PM
+	}
+
+	public int getToken() {
+		return token;
+	}
+
+	public void setToken(int token) {
+		this.token = token;
+	}
+
+	public TokenNumberPK getId() {
+		return id;
+	}
+
+	public void setId(TokenNumberPK id) {
+		this.id = id;
+	}
 
 }
