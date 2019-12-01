@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class DrugAllergic implements Serializable {
@@ -20,6 +21,7 @@ public class DrugAllergic implements Serializable {
 
 	private String level;
 
+	@ManyToOne
 	private Patient patient;
 
 	public int getId() {

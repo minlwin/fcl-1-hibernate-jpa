@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.ElementCollection;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Registration implements Serializable {
@@ -21,10 +23,12 @@ public class Registration implements Serializable {
 
 	private String chiefComplain;
 
+	@ElementCollection
 	private List<String> complains;
 
 	private String remark;
 
+	@OneToOne
 	private QueueInfo queue;
 
 	@EmbeddedId

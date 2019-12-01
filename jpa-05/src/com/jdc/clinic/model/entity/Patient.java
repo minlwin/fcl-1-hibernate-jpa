@@ -2,12 +2,13 @@ package com.jdc.clinic.model.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Patient implements Serializable {
@@ -34,11 +35,14 @@ public class Patient implements Serializable {
 
 	private BloodType blood;
 
-	private List<HospitalHistory> hospitalHistories;
+	@OneToMany(mappedBy = "patient")
+	private Set<HospitalHistory> hospitalHistories;
 
-	private List<DrugAllergic> alergics;
+	@OneToMany(mappedBy = "patient")
+	private Set<DrugAllergic> alergics;
 
-	private List<ChronicDiseasesHistory> diseaseHistories;
+	@OneToMany(mappedBy = "patient")
+	private Set<ChronicDiseasesHistory> diseaseHistories;
 
 	public enum Gender {
 		Male, Female
@@ -120,27 +124,27 @@ public class Patient implements Serializable {
 		this.blood = blood;
 	}
 
-	public List<HospitalHistory> getHospitalHistories() {
+	public Set<HospitalHistory> getHospitalHistories() {
 		return hospitalHistories;
 	}
 
-	public void setHospitalHistories(List<HospitalHistory> hospitalHistories) {
+	public void setHospitalHistories(Set<HospitalHistory> hospitalHistories) {
 		this.hospitalHistories = hospitalHistories;
 	}
 
-	public List<DrugAllergic> getAlergics() {
+	public Set<DrugAllergic> getAlergics() {
 		return alergics;
 	}
 
-	public void setAlergics(List<DrugAllergic> alergics) {
+	public void setAlergics(Set<DrugAllergic> alergics) {
 		this.alergics = alergics;
 	}
 
-	public List<ChronicDiseasesHistory> getDiseaseHistories() {
+	public Set<ChronicDiseasesHistory> getDiseaseHistories() {
 		return diseaseHistories;
 	}
 
-	public void setDiseaseHistories(List<ChronicDiseasesHistory> diseaseHistories) {
+	public void setDiseaseHistories(Set<ChronicDiseasesHistory> diseaseHistories) {
 		this.diseaseHistories = diseaseHistories;
 	}
 
