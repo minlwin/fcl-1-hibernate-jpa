@@ -29,8 +29,11 @@ public class ClinicHome implements Initializable {
 	@FXML
 	private Label header;
 	
-	private static String HOVER_BACK = "p-color";
-	private static String HOVER_TEXT = "white";
+	private static String HOVER_BACK = "s-color";
+	private static String HOVER_TEXT = "black";
+
+	private static String ACTIVE_BACK = "p-light";
+	private static String ACTIVE_TEXT = "white";
 
 	public static void loadView() {
 		Stage stage = new Stage(StageStyle.UNDECORATED);
@@ -40,6 +43,9 @@ public class ClinicHome implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		VBox home = (VBox) sideMenu.getChildren().get(0);
+		activate(home);
 
 		ViewHolderLoadService service = new ViewHolderLoadService();
 		
@@ -81,8 +87,19 @@ public class ClinicHome implements Initializable {
 			if ("Logout".equals(menu.getId())) {
 				menu.getScene().getWindow().hide();
 			} else {
-				sideMenu.getChildren().forEach(a -> a.getStyleClass().remove("s-color"));
-				menu.getStyleClass().add("s-color");
+				
+				// Remove All Active Style
+				sideMenu.getChildren().forEach(a -> {
+					
+					a.getStyleClass().remove(ACTIVE_BACK);
+					
+					if(a instanceof VBox) {
+						VBox box = (VBox) a;
+						box.getChildren().forEach(b -> b.getStyleClass().remove(ACTIVE_TEXT));
+					}
+				});
+				
+				activate(menu);
 				
 				ViewId viewId = ViewId.valueOf(menu.getId());
 				loadView(viewId);
@@ -96,6 +113,11 @@ public class ClinicHome implements Initializable {
 		header.setText(viewId.getTitle());
 		content.getChildren().clear();
 		content.getChildren().add(vo.getRoot());
+	}
+	
+	private void activate(VBox menu) {
+		menu.getStyleClass().add(ACTIVE_BACK);
+		menu.getChildren().forEach(a  -> a.getStyleClass().add(ACTIVE_TEXT));
 	}
 
 }

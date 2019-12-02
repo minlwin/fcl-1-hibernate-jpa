@@ -3,11 +3,12 @@ package com.jdc.clinic.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.jdc.clinic.controller.base.NeedToAddController;
 import com.jdc.clinic.controller.base.SearchableController;
 import com.jdc.clinic.model.entity.Patient;
 import com.jdc.clinic.model.service.PatientService;
 
-public class PatientManagement implements SearchableController {
+public class PatientManagement implements SearchableController , NeedToAddController{
 
     public PatientManagement() {
     }

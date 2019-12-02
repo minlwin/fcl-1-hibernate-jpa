@@ -3,11 +3,12 @@ package com.jdc.clinic.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.jdc.clinic.controller.base.NeedToAddController;
 import com.jdc.clinic.controller.base.SearchableController;
 import com.jdc.clinic.model.entity.QueueInfo;
 import com.jdc.clinic.model.service.QueueService;
 
-public class QueueManagement implements SearchableController {
+public class QueueManagement implements SearchableController, NeedToAddController {
 
     public QueueManagement() {
     }
