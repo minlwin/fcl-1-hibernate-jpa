@@ -22,5 +22,9 @@ public class ClinicApplication extends Application {
 	public void stop() throws Exception {
 		ModelContext.close();
 	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
 
 }

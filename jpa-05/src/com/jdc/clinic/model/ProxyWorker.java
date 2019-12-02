@@ -5,15 +5,27 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 
-public class ExceptionHandler {
+public class ProxyWorker {
 	
 	private static Label message;
 	
 	public static void setMessage(Label message) {
-		ExceptionHandler.message = message;
+		ProxyWorker.message = message;
 	}
 	
-	public static void handle(Throwable ex) {
+	public static void execute(ProxyExecuter executer) {
+		try {
+			executer.execute();
+		} catch (Exception e) {
+			handle(e);
+		}
+	}
+	
+	public static interface ProxyExecuter {
+		void execute();
+	}
+	
+	private static void handle(Throwable ex) {
 		
 		if(ex instanceof ClinicException) {
 			handle((ClinicException)ex);
