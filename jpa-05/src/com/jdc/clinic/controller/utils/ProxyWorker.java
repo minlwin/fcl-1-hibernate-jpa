@@ -1,4 +1,6 @@
-package com.jdc.clinic.model;
+package com.jdc.clinic.controller.utils;
+
+import com.jdc.clinic.model.ClinicException;
 
 import javafx.application.Platform;
 import javafx.scene.control.Alert;

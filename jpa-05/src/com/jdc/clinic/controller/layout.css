@@ -2,6 +2,11 @@
 	-fx-pref-width: 400px;
 }
 
+.clinic_home {
+	-fx-pref-width: 1180px;
+	-fx-pref-height: 780px;
+}
+
 .al_center {
 	-fx-alignment: center;
 }
@@ -46,6 +51,18 @@
 	-fx-padding: 16px;
 }
 
+.wid_80 {
+	-fx-pref-width: 80px;
+}
+
+.wid_100 {
+	-fx-pref-width: 100px;
+}
+
 .wid_120 {
 	-fx-pref-width: 120px;
+}
+
+.height_80 {
+	-fx-pref-height: 80px;
 }

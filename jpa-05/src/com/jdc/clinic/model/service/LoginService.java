@@ -32,6 +32,10 @@ public class LoginService {
 		}
 	}
 	
+	public String getAppName() {
+		return app.getProperty("app.name");
+	}
+	
 	public String getLoginUser() {
 		return loginUser;
 	}

@@ -1,7 +1,7 @@
 package com.jdc.clinic.controller;
 
-import static com.jdc.clinic.model.ProxyWorker.execute;
-import static com.jdc.clinic.model.ProxyWorker.setMessage;
+import static com.jdc.clinic.controller.utils.ProxyWorker.execute;
+import static com.jdc.clinic.controller.utils.ProxyWorker.setMessage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
