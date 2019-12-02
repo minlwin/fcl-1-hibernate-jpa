@@ -7,6 +7,16 @@
 	-fx-pref-height: 780px;
 }
 
+.title {
+	-fx-pref-height: 60px;
+	-fx-padding: 0 0 0 20;
+	-fx-alignment: center-left;
+}
+
+.header {
+	-fx-font-size: 24px;
+}
+
 .al_center {
 	-fx-alignment: center;
 }
