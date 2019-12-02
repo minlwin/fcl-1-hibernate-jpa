@@ -7,10 +7,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import com.jdc.clinic.model.entity.QueueInfo;
+import com.jdc.clinic.model.entity.QueueInfoPK;
 
 public class QueueInfoRepo {
 
 	private EntityManager em;
+
+	public QueueInfoRepo(EntityManager em) {
+		super();
+		this.em = em;
+	}
 
 	public void create(QueueInfo q) {
 		em.persist(q);
@@ -20,7 +26,7 @@ public class QueueInfoRepo {
 		em.merge(q);
 	}
 
-	public void delelete(int id) {
+	public void delelete(QueueInfoPK id) {
 		QueueInfo data = em.find(QueueInfo.class, id);
 		if (null != data) {
 			em.remove(data);

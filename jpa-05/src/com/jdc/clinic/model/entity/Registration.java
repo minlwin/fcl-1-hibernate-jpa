@@ -7,6 +7,10 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.ElementCollection;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.CascadeType.MERGE;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Registration implements Serializable {
@@ -28,8 +32,12 @@ public class Registration implements Serializable {
 
 	private String remark;
 
-	@OneToOne
+	@OneToOne(cascade = { PERSIST, MERGE })
+	@PrimaryKeyJoinColumn
 	private QueueInfo queue;
+	
+	@ManyToOne
+	private Patient patient;
 
 	@EmbeddedId
 	private QueueInfoPK id;
@@ -104,6 +112,14 @@ public class Registration implements Serializable {
 
 	public void setId(QueueInfoPK id) {
 		this.id = id;
+	}
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 
 }

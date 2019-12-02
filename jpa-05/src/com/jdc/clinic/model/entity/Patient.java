@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.CascadeType.MERGE;
 
 @Entity
 public class Patient implements Serializable {
@@ -35,13 +37,13 @@ public class Patient implements Serializable {
 
 	private BloodType blood;
 
-	@OneToMany(mappedBy = "patient")
+	@OneToMany(mappedBy = "patient", cascade = { PERSIST, MERGE }, orphanRemoval = true)
 	private Set<HospitalHistory> hospitalHistories;
 
-	@OneToMany(mappedBy = "patient")
+	@OneToMany(mappedBy = "patient", cascade = { PERSIST, MERGE }, orphanRemoval = true)
 	private Set<DrugAllergic> alergics;
 
-	@OneToMany(mappedBy = "patient")
+	@OneToMany(mappedBy = "patient", cascade = { PERSIST, MERGE }, orphanRemoval = true)
 	private Set<ChronicDiseasesHistory> diseaseHistories;
 
 	public enum Gender {
