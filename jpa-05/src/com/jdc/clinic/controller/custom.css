@@ -1,0 +1,35 @@
+.table-view, .table-view:focused {
+	-fx-background-color: transparent;
+}
+
+.table-view .column-header-background {
+	-fx-background-color: #1a237e;
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+
+.combo-box, .button, .text-field {
+	-fx-background-color: transparent;
+	-fx-border-style: solid;
+	-fx-border-width: 0.5px;
+	-fx-border-color: grey;
+}
+
+.combo-box:focused, .button:focused, .text-field:focused {
+	-fx-border-width: 1px;
+	-fx-border-color: #1a237e;
+}
+
+.button:hover {
+	-fx-background-color: #1a237e;
+	-fx-text-fill: white;
+}
+

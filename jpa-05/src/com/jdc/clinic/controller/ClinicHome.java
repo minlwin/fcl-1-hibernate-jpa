@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.jdc.clinic.controller.base.BaseController;
+import com.jdc.clinic.controller.base.NeedToAddController;
 import com.jdc.clinic.controller.utils.ViewHolder;
 import com.jdc.clinic.controller.utils.ViewHolderLoadService;
 import com.jdc.clinic.controller.utils.ViewLoader;
@@ -28,10 +29,9 @@ public class ClinicHome implements Initializable {
 	private StackPane content;
 	@FXML
 	private Label header;
+	@FXML
+	private VBox addButton;
 	
-	private static String HOVER_BACK = "s-color";
-	private static String HOVER_TEXT = "black";
-
 	private static String ACTIVE_BACK = "p-light";
 	private static String ACTIVE_TEXT = "white";
 
@@ -54,26 +54,6 @@ public class ClinicHome implements Initializable {
 		});
 		
 		service.start();
-	}
-
-	public void mouseOnMenu(MouseEvent event) {
-		Object source = event.getSource();
-
-		if (source instanceof VBox) {
-			VBox menu = (VBox) source;
-			menu.getStyleClass().add(HOVER_BACK);
-			menu.getChildren().forEach(node  -> node.getStyleClass().add(HOVER_TEXT));
-		}
-	}
-
-	public void mouseDownMenu(MouseEvent event) {
-		Object source = event.getSource();
-
-		if (source instanceof VBox) {
-			VBox menu = (VBox) source;
-			menu.getStyleClass().remove(HOVER_BACK);
-			menu.getChildren().forEach(node  -> node.getStyleClass().remove(HOVER_TEXT));
-		}
 	}
 
 	public void mouseClickMenu(MouseEvent event) {
@@ -113,6 +93,18 @@ public class ClinicHome implements Initializable {
 		header.setText(viewId.getTitle());
 		content.getChildren().clear();
 		content.getChildren().add(vo.getRoot());
+		
+		if(vo.getController() instanceof NeedToAddController) {
+			
+			addButton.setVisible(true);
+			
+			NeedToAddController adder = (NeedToAddController) vo.getController();
+			addButton.setOnMouseClicked(event  -> {
+				adder.addNew();
+			});
+		} else {
+			addButton.setVisible(false);
+		}
 	}
 	
 	private void activate(VBox menu) {

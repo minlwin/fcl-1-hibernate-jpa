@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Login implements Initializable{
 
@@ -41,11 +42,16 @@ public class Login implements Initializable{
     		message.getScene().getWindow().hide();
     	});
     }
+    
+    public void close() {
+    	loginId.getScene().getWindow().hide();
+    }
 
 	public static void loadView(Stage stage) throws Exception{
 
 		Parent root = FXMLLoader.load(Login.class.getResource("Login.fxml"));
 		stage.setScene(new Scene(root));
+		stage.initStyle(StageStyle.UNDECORATED);
 		stage.show();
 	}
 

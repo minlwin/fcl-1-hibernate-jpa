@@ -18,6 +18,7 @@
    <stylesheets>
       <URL value="@color.css" />
       <URL value="@layout.css" />
+      <URL value="@custom.css" />
    </stylesheets>
    <children>
       <HBox>
@@ -58,12 +59,26 @@
             <Label text="Password" GridPane.rowIndex="2" />
             <TextField fx:id="loginId" promptText="Enter Login ID" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <PasswordField fx:id="password" promptText="Enter Password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#login" text="LOGIN" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <HBox GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#close" text="CLOSE">
+                     <styleClass>
+                        <String fx:value="wid_120" />
+                        <String fx:value="s-color" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#login" text="LOGIN">
+                     <styleClass>
+                        <String fx:value="wid_120" />
+                        <String fx:value="s-color" />
+                     </styleClass>
+                  </Button>
+               </children>
                <styleClass>
-                  <String fx:value="wid_120" />
-                  <String fx:value="s-color" />
+                  <String fx:value="al_center_left" />
+                  <String fx:value="sp_5" />
                </styleClass>
-            </Button>
+            </HBox>
          </children>
       </GridPane>
    </children>
