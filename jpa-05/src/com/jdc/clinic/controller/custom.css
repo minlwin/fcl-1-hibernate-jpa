@@ -16,14 +16,15 @@
 }
 
 
-.combo-box, .button, .text-field {
+.combo-box, .button, .text-field, .date-picker, .date-picker > .arrow-button {
 	-fx-background-color: transparent;
+	-fx-pref-height: 30px;
 	-fx-border-style: solid;
 	-fx-border-width: 0.5px;
 	-fx-border-color: grey;
 }
 
-.combo-box:focused, .button:focused, .text-field:focused {
+.combo-box:focused, .button:focused, .text-field:focused, .date-picker:focused {
 	-fx-border-width: 1px;
 	-fx-border-color: #1a237e;
 }
