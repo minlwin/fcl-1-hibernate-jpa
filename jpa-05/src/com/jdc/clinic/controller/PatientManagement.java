@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import com.jdc.clinic.controller.base.NeedToAddController;
 import com.jdc.clinic.controller.base.SearchableController;
+import com.jdc.clinic.controller.utils.ViewHolder.ViewId;
 import com.jdc.clinic.model.entity.Patient;
 import com.jdc.clinic.model.service.PatientService;
 
@@ -16,7 +17,7 @@ public class PatientManagement implements SearchableController , NeedToAddContro
     private PatientService service;
 
     public void addNew() {
-        // TODO implement here
+    	ClinicHome.getController().loadView(ViewId.PatientsEdit);
     }
 
     public void showDetails() {

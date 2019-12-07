@@ -9,7 +9,6 @@ public class ViewHolderLoadService extends Service<ViewHolder<BaseController>> {
 
 	@Override
 	protected Task<ViewHolder<BaseController>> createTask() {
-
 		return new Task<ViewHolder<BaseController>>() {
 
 			@Override

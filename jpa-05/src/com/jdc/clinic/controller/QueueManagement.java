@@ -10,41 +10,41 @@ import com.jdc.clinic.model.service.QueueService;
 
 public class QueueManagement implements SearchableController, NeedToAddController {
 
-    public QueueManagement() {
-    }
+	public QueueManagement() {
+	}
 
-    private QueueService service;
+	private QueueService service;
 
-    public void search() {
-        // TODO implement here
-    }
+	public void search() {
+		// TODO implement here
+	}
 
-    public void addNew() {
-        // TODO implement here
-    }
+	public void addNew() {
+		QueueManagementEdit.loadView();
+	}
 
-    public void delete() {
-        // TODO implement here
-    }
+	public void delete() {
+		// TODO implement here
+	}
 
-    public void addToDailyRegistration() {
-        // TODO implement here
-    }
+	public void addToDailyRegistration() {
+		// TODO implement here
+	}
 
-    private void save(QueueInfo q) {
-        // TODO implement here
-    }
+	private void save(QueueInfo q) {
+		// TODO implement here
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

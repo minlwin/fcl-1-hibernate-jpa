@@ -3,14 +3,10 @@ package com.jdc.clinic.controller;
 import static com.jdc.clinic.controller.utils.ProxyWorker.execute;
 import static com.jdc.clinic.controller.utils.ProxyWorker.setMessage;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import com.jdc.clinic.model.service.LoginService;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -19,7 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class Login implements Initializable{
+public class Login {
 
     private LoginService service;
     
@@ -55,9 +51,8 @@ public class Login implements Initializable{
 		stage.show();
 	}
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-
+	@FXML
+	private void initialize() {
 		service = LoginService.getService();
 		setMessage(message);
 	}

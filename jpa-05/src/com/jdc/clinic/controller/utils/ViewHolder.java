@@ -79,6 +79,7 @@ public class ViewHolder<T extends BaseController> {
 		PatientsEdit("Add New Patient", PatientEdit.class),
 		Patients("Patients Management", PatientManagement.class),
 		Queue("Queue Management", QueueManagement.class),
+		QueueEdit("Queue Edit", QueueManagementEdit.class),
 		Registry("Daily Registrations", DailyRegistrations.class);
 
 		private String title;

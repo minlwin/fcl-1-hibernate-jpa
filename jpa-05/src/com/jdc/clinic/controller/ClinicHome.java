@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import com.jdc.clinic.controller.base.BaseController;
 import com.jdc.clinic.controller.base.NeedToAddController;
+import com.jdc.clinic.controller.base.ViewController;
 import com.jdc.clinic.controller.utils.ViewHolder;
 import com.jdc.clinic.controller.utils.ViewHolderLoadService;
 import com.jdc.clinic.controller.utils.ViewLoader;
@@ -21,7 +22,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class ClinicHome implements Initializable {
+public class ClinicHome implements Initializable, ViewController {
 
 	@FXML
 	private VBox sideMenu;
@@ -31,6 +32,8 @@ public class ClinicHome implements Initializable {
 	private Label header;
 	@FXML
 	private VBox addButton;
+	
+	private static ViewController controller;
 	
 	private static String ACTIVE_BACK = "p-light";
 	private static String ACTIVE_TEXT = "white";
@@ -44,9 +47,8 @@ public class ClinicHome implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		VBox home = (VBox) sideMenu.getChildren().get(0);
-		activate(home);
-
+		controller = this;
+		
 		ViewHolderLoadService service = new ViewHolderLoadService();
 		
 		service.setOnSucceeded(event -> {
@@ -66,8 +68,44 @@ public class ClinicHome implements Initializable {
 
 			if ("Logout".equals(menu.getId())) {
 				menu.getScene().getWindow().hide();
-			} else {
-				
+			} else {				
+				ViewId viewId = ViewId.valueOf(menu.getId());
+				loadView(viewId);
+			}
+		}
+
+	}
+	
+	public static ViewController getController() {
+		return controller;
+	}
+		
+	public void loadView(ViewId viewId) {
+		
+		// Add View Object to Content
+		ViewObject<BaseController> vo = ViewHolder.getInstance().getView(viewId);
+		header.setText(viewId.getTitle());
+		content.getChildren().clear();
+		content.getChildren().add(vo.getRoot());
+		
+		// Handle show or hide add button
+		if(vo.getController() instanceof NeedToAddController) {
+			
+			addButton.setVisible(true);
+			
+			NeedToAddController adder = (NeedToAddController) vo.getController();
+			
+			addButton.setOnMouseClicked(event  -> {
+				adder.addNew();
+			});
+		} else {
+			addButton.setVisible(false);
+		}
+		
+		// Activate Selected Menu
+		sideMenu.getChildren().stream()
+			.filter(menu -> menu.getId().equals(viewId.name()))
+			.findAny().ifPresent(menu -> {
 				// Remove All Active Style
 				sideMenu.getChildren().forEach(a -> {
 					
@@ -79,32 +117,9 @@ public class ClinicHome implements Initializable {
 					}
 				});
 				
-				activate(menu);
-				
-				ViewId viewId = ViewId.valueOf(menu.getId());
-				loadView(viewId);
-			}
-		}
-
-	}
-	
-	private void loadView(ViewId viewId) {
-		ViewObject<BaseController> vo = ViewHolder.getInstance().getView(viewId);
-		header.setText(viewId.getTitle());
-		content.getChildren().clear();
-		content.getChildren().add(vo.getRoot());
-		
-		if(vo.getController() instanceof NeedToAddController) {
-			
-			addButton.setVisible(true);
-			
-			NeedToAddController adder = (NeedToAddController) vo.getController();
-			addButton.setOnMouseClicked(event  -> {
-				adder.addNew();
+				// activate menu
+				activate((VBox) menu);
 			});
-		} else {
-			addButton.setVisible(false);
-		}
 	}
 	
 	private void activate(VBox menu) {
