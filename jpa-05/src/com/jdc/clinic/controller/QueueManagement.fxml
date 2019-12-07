@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="content_view" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.clinic.controller.QueueManagement">
    <stylesheets>
       <URL value="@color.css" />
@@ -38,8 +37,9 @@
             <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Section" />
             <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Token  No." />
             <TableColumn maxWidth="198.0" minWidth="198.0" prefWidth="198.0" text="Patient Name" />
+            <TableColumn maxWidth="80.0" minWidth="80.0" text="Status" />
             <TableColumn maxWidth="154.0" minWidth="154.0" prefWidth="154.0" text="Phone" />
-            <TableColumn prefWidth="316.0" text="Chief Complain" />
+            <TableColumn minWidth="154.0" prefWidth="154.0" text="Remark" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

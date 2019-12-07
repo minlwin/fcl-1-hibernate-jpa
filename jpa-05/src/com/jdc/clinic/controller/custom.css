@@ -20,7 +20,7 @@
 	-fx-background-color: transparent;
 	-fx-pref-height: 30px;
 	-fx-border-style: solid;
-	-fx-border-width: 0.5px;
+	-fx-border-width: 0.5;
 	-fx-border-color: grey;
 }
 
