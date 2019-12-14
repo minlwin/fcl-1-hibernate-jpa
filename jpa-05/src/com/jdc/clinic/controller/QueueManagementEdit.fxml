@@ -34,7 +34,7 @@
       <HBox styleClass="popup_input">
          <children>
             <Label styleClass="popup_label" />
-            <Label />
+            <Label fx:id="message" />
          </children>
       </HBox>
       <HBox styleClass="popup_input">

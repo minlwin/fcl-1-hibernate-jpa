@@ -40,6 +40,7 @@ class TokenService {
 		if(null == token) {
 			token = new TokenNumber();
 			token.setId(id);
+			em.persist(token);
 		}
 		
 		token.setToken(token.getToken() + 1);
