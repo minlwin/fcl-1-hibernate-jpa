@@ -27,6 +27,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class QueueManagementEdit implements BaseController{
+	
+	@FXML
+	private Label title;
 
 	@FXML
 	private DatePicker date;
@@ -76,6 +79,7 @@ public class QueueManagementEdit implements BaseController{
 		this.queueInfo = queueInfo;
 		
 		if(null == queueInfo) {
+			title.setText("Add New Queue");
 			this.queueInfo = new QueueInfo();
 			this.queueInfo.setStatus(Status.Register);
 			date.setValue(null);
@@ -85,7 +89,7 @@ public class QueueManagementEdit implements BaseController{
 			name.clear();
 			phone.clear();
 		} else {
-			
+			title.setText("Edit Queue");
 			date.setValue(queueInfo.getId().getRefDate());
 			date.setEditable(false);
 			type.setValue(queueInfo.getId().getType());

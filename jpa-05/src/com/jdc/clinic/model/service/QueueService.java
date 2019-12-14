@@ -42,7 +42,7 @@ public class QueueService {
     	Map<String, Object> params = new HashMap<>();
     	
     	if(null != date) {
-    		sb.append(" and q.id.refDate >= :date");
+    		sb.append(" and q.id.refDate = :date");
     		params.put("date", date);
     	}
     	

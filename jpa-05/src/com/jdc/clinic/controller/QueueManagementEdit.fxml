@@ -19,7 +19,7 @@
    <children>
       <HBox>
          <children>
-            <Label text="Add New Queue">
+            <Label fx:id="title" text="Add New Queue">
                <styleClass>
                   <String fx:value="fs_20" />
                   <String fx:value="white" />

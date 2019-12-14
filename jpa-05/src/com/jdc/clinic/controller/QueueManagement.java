@@ -48,6 +48,8 @@ public class QueueManagement implements SearchableController, NeedToAddControlle
 
 	private void save(QueueInfo q) {
 		service.save(q);
+		from.setValue(q.getId().getRefDate());
+		section.setValue(q.getId().getType());
 		search();
 	}
 
