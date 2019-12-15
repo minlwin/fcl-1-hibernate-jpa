@@ -70,7 +70,10 @@ public class QueueManagement implements SearchableController, NeedToAddControlle
 		
 		MenuItem regist = new MenuItem("Check In");
 		regist.setOnAction(event -> {
-			
+			QueueInfo queueInfo = table.getSelectionModel().getSelectedItem();
+			if(null != queueInfo) {
+				DailyRegistrationEdit.loadView(queueInfo);
+			}
 		});
 		
 		MenuItem delete = new MenuItem("Cancel");

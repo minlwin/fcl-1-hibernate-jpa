@@ -77,6 +77,7 @@ public class ViewHolder<T extends BaseController> {
 
 		Home("Clinic Management", Report.class), 
 		PatientsEdit("Add New Patient", PatientEdit.class),
+		RegistrationEdit("Edit Registration", DailyRegistrationEdit.class),
 		Patients("Patients Management", PatientManagement.class),
 		Queue("Queue Management", QueueManagement.class),
 		QueueEdit("Queue Edit", QueueManagementEdit.class),

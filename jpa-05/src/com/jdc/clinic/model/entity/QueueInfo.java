@@ -25,6 +25,12 @@ public class QueueInfo implements Serializable {
     @EmbeddedId
     private QueueInfoPK id;
     
+    private static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("yyyyMMdd");
+    
+    public String getQueue() {
+    	return String.format("%s-%s-%03d", id.getRefDate().format(FORMAT), id.getType().name(), id.getToken());
+    }
+    
     public enum Status {
     	Register, CheckIn, Finish, Cancel
     }
