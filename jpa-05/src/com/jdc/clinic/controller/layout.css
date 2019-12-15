@@ -69,7 +69,9 @@
 }
 
 .custom-title-pane > .header {
-	-fx-padding: 5px;
+	-fx-pref-height: 33px;
+	-fx-alignment: center-left;
+	-fx-padding: 0 0 0 10;
 }
 
 .custom-title-pane > .header > .label {

@@ -3,12 +3,11 @@
 }
 
 .table-view .column-header-background {
-	-fx-background-color: #1a237e;
+	-fx-background-color: #d1d9ff;
 }
 
 .table-view .column-header-background .label{
     -fx-background-color: transparent;
-    -fx-text-fill: white;
 }
 
 .table-view .column-header {
@@ -16,15 +15,18 @@
 }
 
 
-.combo-box, .button, .text-field, .date-picker, .date-picker > .arrow-button {
+.combo-box, .list-view, .button, .text-field, .date-picker, .date-picker > .arrow-button {
 	-fx-background-color: transparent;
-	-fx-pref-height: 30px;
 	-fx-border-style: solid;
 	-fx-border-width: 0.5;
 	-fx-border-color: grey;
 }
 
-.combo-box:focused, .button:focused, .text-field:focused, .date-picker:focused {
+.combo-box, .button, .text-field, .date-picker, .date-picker > .arrow-button {
+	-fx-pref-height: 30px;
+}
+
+.combo-box:focused, .list-view:focused, .button:focused, .text-field:focused, .date-picker:focused {
 	-fx-border-width: 1px;
 	-fx-border-color: #1a237e;
 }
@@ -32,5 +34,9 @@
 .button:hover {
 	-fx-background-color: #1a237e;
 	-fx-text-fill: white;
+}
+
+.text-field, .text-field:focused {
+	-fx-prompt-text-fill: gray;
 }
 

@@ -37,3 +37,12 @@
 	-fx-text-fill: #000000;
 	-fx-fill: #ffffff;
 }
+
+.tab-pane {
+	-fx-border-color: #1a237e;
+	-fx-border-style: solid ;
+}
+
+.tab-header-background {
+	-fx-background-color: #534bae;
+}
