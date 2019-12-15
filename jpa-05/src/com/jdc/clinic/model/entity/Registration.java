@@ -104,6 +104,7 @@ public class Registration implements Serializable {
 
 	public void setQueue(QueueInfo queue) {
 		this.queue = queue;
+		
 	}
 
 	public QueueInfoPK getId() {

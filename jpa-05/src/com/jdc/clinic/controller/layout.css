@@ -62,6 +62,20 @@
 	-fx-alignment: center-right;	
 }
 
+.custom-title-pane {
+	-fx-border-color: #534bae;
+	-fx-border-style: solid;
+	-fx-border-width: 1px;	
+}
+
+.custom-title-pane > .header {
+	-fx-padding: 5px;
+}
+
+.custom-title-pane > .header > .label {
+	-fx-font-size: 14px;
+}
+
 .sp_5 {
 	-fx-spacing: 5px;
 }
